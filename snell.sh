@@ -6,8 +6,8 @@ SYSTEMD="/etc/systemd/system/snell.service"
 apt-get install unzip -y
 cd ~/
 wget --no-check-certificate -O snell.zip https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-aarch64.zip
-unzip -o snell.zip
- rm -f snell.zip
+unzip -o snell-server-v4.0.1-linux-aarch64.zip
+ rm -f snell-server-v4.0.1-linux-aarch64.zip
  chmod +x snell-server
  mv -f snell-server /usr/local/bin/
  if [ -f ${CONF} ]; then
