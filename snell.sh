@@ -14,7 +14,7 @@ unzip -o snell-server-v4.0.1-linux-aarch64.zip
    echo "Found existing config..."
    else
    if [ -z ${PSK} ]; then
-     PSK=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
+     PSK=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 31)
      echo "Using generated PSK: ${PSK}"
    else
      echo "Using predefined PSK: ${PSK}"
@@ -24,6 +24,7 @@ unzip -o snell-server-v4.0.1-linux-aarch64.zip
    echo "[snell-server]" >>${CONF}
    echo "listen = 0.0.0.0:443" >>${CONF}
    echo "psk = ${PSK}" >>${CONF}
+   echo "ipv6 = false" >>${CONF}
    echo "obfs = tls" >>${CONF}
  fi
  if [ -f ${SYSTEMD} ]; then
